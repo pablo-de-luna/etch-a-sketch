@@ -1,16 +1,23 @@
 "use strict";
 
 const canvas = document.querySelector("#grid-container");
-
 const gridSize = 16;
 const gridArea = gridSize * gridSize;
 
-const createSquares = () => {
+const createGrid = () => {
     for (let i = 0; i < gridArea; i++) {
-        const square = document.createElement("div");
-        square.setAttribute("class", "square")
-        canvas.appendChild(square);
+        const space = document.createElement("div");
+        space.setAttribute("class", "space")
+        canvas.appendChild(space);
     }
 };
+createGrid();
 
-createSquares();
+const spaces = document.querySelectorAll("div.space");
+
+const paintSpaceBlack = () => {
+    spaces.forEach(space => space.addEventListener("mouseover", () => {
+        space.setAttribute("style", "background: black;");
+    }));
+};
+paintSpaceBlack();
