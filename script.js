@@ -3,6 +3,11 @@
 const canvas = document.querySelector("#grid-container");
 const gridSize = 16;
 const gridArea = gridSize * gridSize;
+const spaceSize = 100 / gridSize;
+
+// Change the flex basis percentage of .space selector in CSS file
+document.documentElement.style.cssText =
+`--space-basis-percentage: ${spaceSize}%;`
 
 const createGrid = () => {
     for (let i = 0; i < gridArea; i++) {

@@ -11,22 +11,28 @@ html {
     border: 0;
 }
 
+:root {
+    --space-basis-percentage: ;
+}
+
 body {
-    background-color: whitesmoke;
+    background-color: #131313;
 }
 
 #grid-container {
+    background-color: #939393;
     margin: auto;
     margin-top: 5vh;
-    height: 771px;
-    width: 771px;
+    height: 800px;
+    width: 800px;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid #83a7d3;
 }
 
 .space {
-    height: 48px;
-    width: 48px;
-    border: .5px solid #e3e3e3;
+    flex: var(--space-basis-percentage);
+    height: auto;
+    width: auto;
+    border: .5px solid #a7a7a7;
 }
