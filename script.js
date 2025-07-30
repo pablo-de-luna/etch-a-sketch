@@ -1,7 +1,7 @@
 "use strict";
 
 const slider = document.querySelector("#size-slider");
-const restartButton = document.querySelector("#restart-button");
+const sizeText = document.querySelector("#size-text");
 const grid = document.querySelector("#grid-container");
 
 const defaultGridSize = 16;
@@ -25,7 +25,7 @@ const createGrid = () => {
 createGrid();
 
 const changeSize = () => {
-    restartButton.addEventListener("click", () => {
+    slider.addEventListener("change", () => {
         for (let i = 0; i < gridArea; i++) {
             grid.firstChild.remove();
         }
@@ -45,3 +45,7 @@ const paintSpaceBlack = () => {
     }));
 };
 paintSpaceBlack();
+
+slider.addEventListener("change", () => {
+   sizeText.textContent = `${slider.value} x ${slider.value}`; 
+});
