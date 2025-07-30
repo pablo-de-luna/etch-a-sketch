@@ -47,5 +47,5 @@ const paintSpaceBlack = () => {
 paintSpaceBlack();
 
 slider.addEventListener("change", () => {
-   sizeText.textContent = `${slider.value} x ${slider.value}`; 
+   sizeText.textContent = `GRID ${slider.value} x ${slider.value}`; 
 });
