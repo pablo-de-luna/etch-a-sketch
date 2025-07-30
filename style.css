@@ -16,23 +16,29 @@ html {
 }
 
 body {
-    background-color: #131313;
+    background-color: #005b60;
 }
 
 #grid-container {
-    background-color: #939393;
+    background-color: #a1a1a1;
     margin: auto;
-    margin-top: 5vh;
-    height: 800px;
-    width: 800px;
+    margin-top: 30px;
+    height: 750px;
+    width: 750px;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid #83a7d3;
+
 }
 
 .space {
     flex: var(--space-basis-percentage);
     height: auto;
     width: auto;
-    border: .5px solid #a7a7a7;
+}
+
+#logo {
+    font-family: Silkscreen, Verdana, sans-serif;
+    font-size: 88px;
+    text-align: center;
+    color:#dad8d8;
 }

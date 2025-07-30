@@ -1,7 +1,7 @@
 "use strict";
 
 const canvas = document.querySelector("#grid-container");
-const gridSize = 16;
+const gridSize = 40;
 const gridArea = gridSize * gridSize;
 const spaceSize = 100 / gridSize;
 
