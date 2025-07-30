@@ -34,7 +34,7 @@ body {
     flex: var(--space-basis-percentage);
     height: auto;
     width: auto;
-    border: .5px solid;
+    border: .5px solid #00000010;
 }
 
 #logo {

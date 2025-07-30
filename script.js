@@ -1,9 +1,11 @@
 "use strict";
 
+const slider = document.querySelector("#size-slider");
 const restartButton = document.querySelector("#restart-button");
 const grid = document.querySelector("#grid-container");
 
-let gridSize = 10;
+const defaultGridSize = 16;
+let gridSize = defaultGridSize;
 let gridArea = gridSize * gridSize;
 
 const setSpaceSize = () => {
@@ -27,7 +29,7 @@ const changeSize = () => {
         for (let i = 0; i < gridArea; i++) {
             grid.firstChild.remove();
         }
-        gridSize = prompt("grid size", 10);
+        gridSize = slider.value;
         gridArea = gridSize * gridSize;
         createGrid();
         paintSpaceBlack();
