@@ -45,6 +45,33 @@ const paintSpaceBlack = () => {
     }));
 };
 
+const paintSpaceRandomColor = () => {
+    const spaces = document.querySelectorAll("div.space");
+
+    spaces.forEach(space => space.addEventListener("mouseover", () => {
+        space.setAttribute("style", `background: ${getRandomColor()};`);
+    }));
+};
+
+const getRandomColor = () => {
+    const red = Math.floor(Math.random() * 200);
+    const green = Math.floor(Math.random() * 200);
+    const blue = Math.floor(Math.random() * 200);
+
+    return `rgb(${red}, ${green}, ${blue})`;
+};
+
+const toggle = "on";
+
+const changeColorMode = () => {
+    if (toggle === "off") {
+        paintSpaceBlack();
+    } else {
+        paintSpaceRandomColor();
+    }
+};
+
+getRandomColor()
 createGrid();
 changeSize();
-paintSpaceBlack();
+changeColorMode();
