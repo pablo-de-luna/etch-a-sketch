@@ -17,12 +17,18 @@ html {
 
 body {
     background-color: #7d2a00;
+    display: flex;
+    height: 90vh;
+    margin-top: 20px;
+}
+
+#content-container {
+    margin: auto;
 }
 
 #grid-container {
     background-color: #a1a1a1;
     margin: auto;
-    margin-top: 20px;
     height: 600px;
     width: 600px;
     display: flex;
@@ -39,6 +45,7 @@ body {
 
 #logo {
     font-size: 71px;
+    min-width: 630px;
     text-align: center;
     margin-top: -10px;
 }
@@ -103,4 +110,5 @@ body {
 
 #modes-container button:hover {
     color: #47200c;
+    cursor: pointer;
 }

@@ -13,8 +13,8 @@ let gridArea = gridSize * gridSize;
 const setSpaceSize = () => {
     let spaceSizePercentage = 100 / gridSize;
     
-    document.documentElement.style.cssText =
-        `--space-basis-percentage: ${spaceSizePercentage}%;`
+    document.documentElement.style.setProperty('--space-basis-percentage',
+        `${spaceSizePercentage}%`);
 };
 
 const createGrid = () => {
@@ -28,15 +28,18 @@ const createGrid = () => {
 
 const changeSize = () => {
     slider.addEventListener("change", () => {
+        sizeText.textContent = `GRID ${slider.value} x ${slider.value}`; 
+        
         for (let i = 0; i < gridArea; i++) {
             grid.firstChild.remove();
         }
-        sizeText.textContent = `GRID ${slider.value} x ${slider.value}`; 
+
         gridSize = slider.value;
         gridArea = gridSize * gridSize;
         createGrid();
+
         setColorMode();
-        resetGame();
+        resetGridButton();
     });
 };
 
@@ -86,7 +89,7 @@ const setColorMode = () => {
     }
 };
 
-const resetGame = () => {
+const   resetGridButton = () => {
     const spaces = document.querySelectorAll("div.space");
 
     resetButton.addEventListener("click", () => {
@@ -101,4 +104,4 @@ changeSize();
 setColorMode();
 getRandomColor();
 toggleRandomButton();
-resetGame();
+resetGridButton();
