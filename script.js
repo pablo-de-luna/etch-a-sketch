@@ -4,7 +4,6 @@ const slider = document.querySelector("#size-slider");
 const sizeText = document.querySelector("#size-text");
 const grid = document.querySelector("#grid-container");
 const resetButton = document.querySelector("#reset-button");
-const opacityButton = document.querySelector("#opacity-button");
 const randomButton = document.querySelector("#random-button");
 
 const defaultGridSize = 16;
@@ -37,6 +36,7 @@ const changeSize = () => {
         gridArea = gridSize * gridSize;
         createGrid();
         setColorMode();
+        resetGame();
     });
 };
 
@@ -69,25 +69,36 @@ const toggleRandomButton = () => {
     randomButton.addEventListener("click", () => {
         value = value + 1;
         if (value % 2 === 0) {
-            randomButton.textContent = "RANDOM: OFF";
+            randomButton.textContent = "RANDOM COLOR: OFF";
         } else {
-            randomButton.textContent = "RANDOM: ON";
+            randomButton.textContent = "RANDOM COLOR: ON";
         }
         setColorMode();
     })
 }
 
 const setColorMode = () => {
-    if (randomButton.textContent === "RANDOM: OFF") {
+    if (randomButton.textContent === "RANDOM COLOR: OFF") {
         paintSpaceBlack();
     }
-    if (randomButton.textContent === "RANDOM: ON") {
+    if (randomButton.textContent === "RANDOM COLOR: ON") {
         paintSpaceRandomColor();
     }
 };
 
-getRandomColor()
+const resetGame = () => {
+    const spaces = document.querySelectorAll("div.space");
+
+    resetButton.addEventListener("click", () => {
+        spaces.forEach(
+            space => space.setAttribute("style", "background: #a1a1a1;")
+        )
+    });
+}
+
 createGrid();
 changeSize();
-toggleRandomButton();
 setColorMode();
+getRandomColor();
+toggleRandomButton();
+resetGame();
