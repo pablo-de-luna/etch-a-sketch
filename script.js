@@ -3,6 +3,9 @@
 const slider = document.querySelector("#size-slider");
 const sizeText = document.querySelector("#size-text");
 const grid = document.querySelector("#grid-container");
+const resetButton = document.querySelector("#reset-button");
+const opacityButton = document.querySelector("#opacity-button");
+const randomButton = document.querySelector("#random-button");
 
 const defaultGridSize = 16;
 let gridSize = defaultGridSize;
@@ -33,7 +36,7 @@ const changeSize = () => {
         gridSize = slider.value;
         gridArea = gridSize * gridSize;
         createGrid();
-        paintSpaceBlack();
+        setColorMode();
     });
 };
 
@@ -61,12 +64,24 @@ const getRandomColor = () => {
     return `rgb(${red}, ${green}, ${blue})`;
 };
 
-const toggle = "on";
+const toggleRandomButton = () => {
+    let value = 0;
+    randomButton.addEventListener("click", () => {
+        value = value + 1;
+        if (value % 2 === 0) {
+            randomButton.textContent = "RANDOM: OFF";
+        } else {
+            randomButton.textContent = "RANDOM: ON";
+        }
+        setColorMode();
+    })
+}
 
-const changeColorMode = () => {
-    if (toggle === "off") {
+const setColorMode = () => {
+    if (randomButton.textContent === "RANDOM: OFF") {
         paintSpaceBlack();
-    } else {
+    }
+    if (randomButton.textContent === "RANDOM: ON") {
         paintSpaceRandomColor();
     }
 };
@@ -74,4 +89,5 @@ const changeColorMode = () => {
 getRandomColor()
 createGrid();
 changeSize();
-changeColorMode();
+toggleRandomButton();
+setColorMode();
