@@ -9,9 +9,10 @@ let gridSize = defaultGridSize;
 let gridArea = gridSize * gridSize;
 
 const setSpaceSize = () => {
-    let spaceSize = 100 / gridSize;
+    let spaceSizePercentage = 100 / gridSize;
+    
     document.documentElement.style.cssText =
-        `--space-basis-percentage: ${spaceSize}%;`
+        `--space-basis-percentage: ${spaceSizePercentage}%;`
 };
 
 const createGrid = () => {
@@ -22,20 +23,19 @@ const createGrid = () => {
         grid.appendChild(space);
     }
 };
-createGrid();
 
 const changeSize = () => {
     slider.addEventListener("change", () => {
         for (let i = 0; i < gridArea; i++) {
             grid.firstChild.remove();
         }
+        sizeText.textContent = `GRID ${slider.value} x ${slider.value}`; 
         gridSize = slider.value;
         gridArea = gridSize * gridSize;
         createGrid();
         paintSpaceBlack();
     });
 };
-changeSize();
 
 const paintSpaceBlack = () => {
     const spaces = document.querySelectorAll("div.space");
@@ -44,8 +44,7 @@ const paintSpaceBlack = () => {
         space.setAttribute("style", "background: black;");
     }));
 };
-paintSpaceBlack();
 
-slider.addEventListener("change", () => {
-   sizeText.textContent = `GRID ${slider.value} x ${slider.value}`; 
-});
+createGrid();
+changeSize();
+paintSpaceBlack();
